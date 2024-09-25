@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    volumes:
+      - ./data/db.json:/app/db.json:delegated
+      - ./public:/public:delegated
+    restart: unless-stopped
+    ports:
+      - ${PORT:-3000}:3000
